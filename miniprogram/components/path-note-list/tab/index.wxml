@@ -1,10 +1,12 @@
 <!--components/path-note-list/tab/index.wxml-->
-<view class="flex items-center gap-8 path-notes">
-	<view  class="flex items-center relative path-note {{curKey === item.key ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="key" bindtap="onClick" data-index="{{index}}">
-		<view>{{item.icon}}</view>
-		<view>{{item.name}}</view>
+<scroll-view style="height: 35px;" scroll-x="{{true}}">
+  <view class="flex items-center gap-8 path-notes">
+    <view  class="flex items-center relative path-note {{curKey === item.key ? 'active' : ''}}" wx:for="{{tabs}}" wx:key="key" bindtap="onClick" data-index="{{index}}">
+      <view>{{item.icon}}</view>
+      <view>{{item.name}}</view>
 
-		<view class="absolute square">
-		</view>
-	</view>
-</view>
+      <view class="absolute square">
+      </view>
+    </view>
+  </view>
+</scroll-view>
