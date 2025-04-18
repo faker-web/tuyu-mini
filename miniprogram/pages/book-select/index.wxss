@@ -4,6 +4,9 @@ page {
 
 .root {
 	padding: 16px;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
 }
 
 .book-card {

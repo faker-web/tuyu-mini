@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "chinese-button": "../../components/button/chinese-btn/index"
+  },
+  "disableScroll": false,
+  "enablePullDownRefresh": false
+}

@@ -38,12 +38,25 @@
     >
       <block wx:for="{{banners}}" wx:key="*this">
         <swiper-item>
-          <view class="banner-img-wrap">
+          <view class="banner-img-wrap relative" data-index="{{index}}" bindtap="bannerClick">
             <image
               src="{{item.url}}"
               class="banner-img"
               mode="widthFix"
+  
             />
+            <button
+              wx:if="{{!isLogined}}"
+              data-id="h5"
+              data-index="{{index}}"
+              catchtouchmove="preventD"
+              open-type="getPhoneNumber"
+              bindgetphonenumber="onRegisterAccount"
+              hover-class="none"
+              style="width: auto;"
+              class="absolute l-0 t-0 r-0 b-0"
+            >
+            </button>
           </view>
         </swiper-item>
       </block>

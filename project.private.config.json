@@ -9,6 +9,34 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/signet-add-page/index",
+          "pathName": "pages/signet-add-page/index",
+          "query": "stamp_pid=15&key= activity_1",
+          "launchMode": "default",
+          "scene": 1047
+        },
+        {
+          "name": "pages/book-list/index",
+          "pathName": "pages/book-list/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "H5",
+          "pathName": "pages/game/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/book-select/index",
+          "pathName": "pages/book-select/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "分享落地页",
           "pathName": "pages/path-note-detail/index",
           "query": "path_id=2",
@@ -30,13 +58,6 @@
           "scene": null
         },
         {
-          "name": "",
-          "pathName": "pages/signet-add-page/index",
-          "query": "stamp_pid=5&key=hahaha",
-          "launchMode": "default",
-          "scene": 1047
-        },
-        {
           "name": "pages/order/index",
           "pathName": "pages/order/index",
           "query": "",
@@ -54,13 +75,6 @@
           "name": "pages/book-info/index",
           "pathName": "pages/book-info/index",
           "query": "code=8",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/book-list/index",
-          "pathName": "pages/book-list/index",
-          "query": "",
           "launchMode": "default",
           "scene": null
         },

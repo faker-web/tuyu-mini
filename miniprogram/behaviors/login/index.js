@@ -25,6 +25,7 @@ export default Behavior({
     getApp().globalData.event.on('login', (params) => {
       this.setData({
         isLogined: true,
+        // isUserAccount: false
         isUserAccount: params.type !== 'loginFailed',
       });
       this.onLogined && this.onLogined();

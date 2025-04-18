@@ -1,0 +1,22 @@
+<view class="container" wx:if="{{isUserAccount}}">
+  <web-view src="{{url}}" wx:if="{{!!url}}" style="height: 100vh;"></web-view>
+</view>
+<view class="container relative" wx:else>
+  <view style="margin-top: 60vh;">
+    <chinese-button type="default">
+      <button
+        open-type="getPhoneNumber"
+        bindgetphonenumber="onRegisterAccount"
+        hover-class="none"
+        style="color: #7F5C11; font-weight: 400;"
+      >
+        登录去抽奖
+      </button>
+    </chinese-button>
+  </view>
+  <view
+    class="bg"
+  >
+    <image class="image" mode="aspectFill" style="width: 100vw;" src="https://oss.storyhub.cc/h5/20250414-214818.jpeg" />
+  </view>
+</view>
