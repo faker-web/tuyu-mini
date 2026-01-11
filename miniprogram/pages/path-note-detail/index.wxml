@@ -22,14 +22,15 @@
 		wx-if="{{showSelfShare}}"
 	/>
 	<view wx:else>
-		<view style="height: 592rpx; overflow: hidden;">
-		  <view  style="z-index: 111; position: absolute; height: 592rpx;">
+		<view style="height: {{headerHeight}}rpx; overflow: hidden;">
+		  <view  style="z-index: 111; position: absolute; height: {{headerHeight}}rpx;">
 				<header
 					name="{{path_info.group_name ? (path_info.group_name + '|' + path_info.name) : ''}}"
 					images="{{path_info.images}}"
 					fin_place_count="{{fin_place_count}}"
 					place_count="{{place_details.length}}"
 					isUserPath="{{isUserPath}}"
+					bindheight="onHeaderHeight"
 				/>
 			</view>
 		</view>
@@ -85,10 +86,12 @@
 					<spot
 						image="{{item.image}}"
 						name="{{item.name}}"
+						close_time_str="{{item.close_time_str}}"
+						open_time_str="{{item.open_time_str}}"
 						place_id="{{item.place_id}}"
-				location="{{item.location}}"
-				loc_long="{{item.loc_long}}"
-				loc_lat="{{item.loc_lat}}"
+						location="{{item.location}}"
+						loc_long="{{item.loc_long}}"
+						loc_lat="{{item.loc_lat}}"
 				    path_id="{{path_id}}"
 						user_path_id="{{user_path_id}}"
 						product_ids="{{item.product_id ? [item.product_id] : []}}"
@@ -100,7 +103,7 @@
 						plain_text="{{item.plain_text}}"
 						bind:onPrivilege="onPrivilege"
 						bind:onImageClick="onImageClick"
-				bind:spotChecked="onSpotChecked"
+						bind:spotChecked="onSpotChecked"
 						isUserPath="{{true}}"
 						showOrderBtn="{{item.showOrderBtn}}"
 						orderStatus="{{item.orderStatus}}"

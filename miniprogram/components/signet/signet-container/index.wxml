@@ -14,7 +14,7 @@
 
       <view class="empty-btn-groups">
         <view class="btn" bind:tap="onUpload">本地上传</view>
-        <view class="btn" bind:tap="onScan">扫一扫</view>
+        <view class="btn" bind:tap="onScan">扫码添加</view>
       </view>
     </view>
   

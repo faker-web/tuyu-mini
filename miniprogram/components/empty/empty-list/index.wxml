@@ -1,5 +1,5 @@
 <!--components/empty/empty-list/index.wxml-->
 <view class="inline-block">
-  <image src="{{empty}}" style="width: {{width}}px; height: {{height}}px" />
+  <image src="{{empty}}" style="width: {{width * 2}}rpx; height: {{height * 2}}rpx" />
 	<view class="mt-8 text-14 text-gray-color-1 text-center">{{text}}</view>
 </view>

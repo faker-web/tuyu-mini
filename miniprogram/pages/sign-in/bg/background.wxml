@@ -1,0 +1,11 @@
+<view class="relative container">
+  <view class="left point">
+	  <point size="18" />
+	</view>
+  <view class="middle point">
+		<point size="132" />
+	</view>
+	<view class="right point">
+		<point size="13" />
+	</view>
+</view>

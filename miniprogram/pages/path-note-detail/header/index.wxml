@@ -1,7 +1,7 @@
 <!--pages/path-note-detail/header/index.wxml-->
 <view class="header">
   <view class="bg-image">
-    <image mode="heightFix" src="{{images[current]}}" />
+    <image id="myImage" mode="widthFix" bindload="onImageLoad" src="{{images[current]}}" />
   </view>
 	<view class="sub-title flex items-center gap-8">
 	  <scroll-view style="width: 100vw;" scroll-x>

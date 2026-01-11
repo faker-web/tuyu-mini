@@ -23,10 +23,14 @@ page {
   padding: 0 12px;
 
   position: fixed;
-  bottom: 41px;
+  padding-bottom: 41px;
+  bottom: 0;
   left: 0;
   right: 0;
   font-size: 18px;
+
+  background-color: #F0EBDD;
+  z-index: 1;
 }
 
 .haha .weui-dialog {

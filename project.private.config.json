@@ -9,16 +9,30 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/signet-add-page/index",
-          "pathName": "pages/signet-add-page/index",
-          "query": "stamp_pid=18&key=path&couponId=71",
+          "name": "pages/path-note-detail/index",
+          "pathName": "pages/path-note-detail/index",
+          "query": "path_id=23&group_id=mine",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "store-list",
-          "pathName": "pages/store-list/index",
+          "name": "H5",
+          "pathName": "pages/game/index",
+          "query": "id=6",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "portal",
+          "pathName": "pages/sign-in/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/signet-add-page/index",
+          "pathName": "pages/signet-add-page/index",
+          "query": "stamp_pid=18&key=path&couponId=71",
           "launchMode": "default",
           "scene": null
         },
@@ -33,13 +47,6 @@
           "name": "pages/signet-detail/index",
           "pathName": "pages/signet-detail/index",
           "query": "book_id=65",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "H5",
-          "pathName": "pages/game/index",
-          "query": "id=1",
           "launchMode": "default",
           "scene": null
         },
@@ -151,5 +158,5 @@
   },
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "projectname": "tuyu-mini",
-  "libVersion": "3.8.7"
+  "libVersion": "3.8.10"
 }

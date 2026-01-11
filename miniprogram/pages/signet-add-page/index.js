@@ -1,7 +1,12 @@
-import dayjs from 'dayjs';
-import { addToPage, corpStamp, getBookInfo, getStampInfo } from '../../service/signet/index';
-import loginBehavior from '../../behaviors/login/index';
-const chooseLocation = requirePlugin('chooseLocation');
+import dayjs from "dayjs";
+import {
+  addToPage,
+  corpStamp,
+  getBookInfo,
+  getStampInfo,
+} from "../../service/signet/index";
+import loginBehavior from "../../behaviors/login/index";
+const chooseLocation = requirePlugin("chooseLocation");
 Page({
   behaviors: [loginBehavior],
   /**
@@ -11,19 +16,19 @@ Page({
     stamp_pid: 0,
     from_book_id: 0,
     owned: false,
-    bgImage: '',
+    bgImage: "",
     signet: {},
-    name: '',
-    time: '',
-    timeStr: '',
+    name: "",
+    time: "",
+    timeStr: "",
     location: {},
     isEdit: false,
-    modalValue: '',
+    modalValue: "",
     pageError: false,
     canCorpStamp: false,
     isStampOrigin: false,
     artist: null,
-    company: null
+    company: null,
   },
 
   /**
@@ -31,17 +36,17 @@ Page({
    */
   async onLoad(options) {
     this.options = options;
-    console.log('--options', options)
+    console.log("--options", options);
     wx.getLocation({
       success: (res) => {
         this.currentLocation = {
           latitude: res.latitude,
-          longitude: res.longitude
+          longitude: res.longitude,
         };
-      } 
+      },
     });
     this.setData({
-      from_book_id: this.options.book_id || 0
+      from_book_id: this.options.book_id || 0,
     });
   },
 
@@ -63,13 +68,13 @@ Page({
       }
       this.setData({
         bgImage: bookConfig.page_bg_img,
-        timeStr: date.format('YYYY年MM月DD日 HH:mm:ss'),
-        canCorpStamp: corpped && corpped !== 'FAILED' ? true : false,
-        isStampOrigin: corpped === 'FAILED' ? true : false,
+        timeStr: date.format("YYYY年MM月DD日 HH:mm:ss"),
+        canCorpStamp: corpped && corpped !== "FAILED" ? true : false,
+        isStampOrigin: corpped === "FAILED" ? true : false,
         signet: {
           image_url,
-          corppedStamp: corpped
-        }
+          corppedStamp: corpped,
+        },
       });
     }
     // 扫一扫入口 or nfc 入口
@@ -78,31 +83,31 @@ Page({
       // 如果返回的商品type 不是2，就报个错，提示无效二维码  1-正经文创  2-印章 3印章本
       if (data.product_info.type !== 2) {
         wx.showToast({
-          icon: 'error',
-          title: '提示无效二维码',
+          icon: "error",
+          title: "提示无效二维码",
         });
 
         this.setData({
-          pageError: true
+          pageError: true,
         });
         return;
       }
       const bookInfo = data.product_info;
       const bookConfig = bookInfo.content.book_config;
-      console.log('--bookInfo', bookInfo)
+      console.log("--bookInfo", bookInfo);
       this.setData({
         owned: data.owned,
         stamp_pid: this.options.stamp_pid,
         name: bookInfo.name,
         bgImage: bookConfig.page_bg_img,
         time: date.unix(),
-        timeStr: date.format('YYYY年MM月DD日 HH:mm:ss'),
+        timeStr: date.format("YYYY年MM月DD日 HH:mm:ss"),
         isStampOrigin: true,
         signet: {
-          image_url: bookInfo.show_image
+          image_url: bookInfo.show_image,
         },
         artist: { ...bookInfo.artist },
-        company: {...bookInfo.company }
+        company: { ...bookInfo.company },
       });
     }
   },
@@ -110,12 +115,11 @@ Page({
   async initValue() {
     try {
       wx.showLoading({
-        title: '加载中...',
+        title: "加载中...",
       });
       await this.initValueCore();
-    }
-    catch (e) {}
-    finally {
+    } catch (e) {
+    } finally {
       wx.hideLoading();
     }
   },
@@ -125,42 +129,38 @@ Page({
       const image = decodeURIComponent(imageUrl);
       const cropped = await corpStamp(image);
       return cropped;
+    } catch (e) {
+      return "FAILED";
     }
-    catch (e) {
-      return 'FAILED';
-    }
-    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {
-
-  },
+  onReady() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    const location = chooseLocation.getLocation(); 
+    const location = chooseLocation.getLocation();
     if (!location) return;
-    const name = [location.city, location.district, location.name].filter(Boolean);
+    const name = [location.city, location.district, location.name].filter(
+      Boolean
+    );
     this.setData({
       location: {
-        name: name.join(','),
+        name: name.join(","),
         loc_lat: location.latitude,
-        loc_long: location.longitude
-      }
-    })
+        loc_long: location.longitude,
+      },
+    });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {
-
-  },
+  onHide() {},
 
   /**
    * 生命周期函数--监听页面卸载
@@ -172,27 +172,21 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {
-
-  },
+  onPullDownRefresh() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
-
-  },
+  onReachBottom() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
-  },
+  onShareAppMessage() {},
   onEdit() {
     this.setData({
       isEdit: true,
-      modalValue: this.data.name
+      modalValue: this.data.name,
     });
   },
   onNameModalClick(e) {
@@ -201,12 +195,11 @@ Page({
       this.setData({
         isEdit: false,
       });
-    }
-    else {
+    } else {
       if (this.data.modalValue.length > 8) {
         wx.showToast({
-          icon: 'none',
-          title: '名称长度小于 8 个字符'
+          icon: "none",
+          title: "名称长度小于 8 个字符",
         });
         return;
       }
@@ -218,30 +211,46 @@ Page({
   },
   onNameChange(e) {
     this.setData({
-      modalValue: e.detail.value
+      modalValue: e.detail.value,
     });
   },
   onMapOpen() {
-    const key = 'LXABZ-P2ICT-ATAXX-VM4X3-LGHHE-ZBFHI';
-    const referer = 'fuyu';
+    // const key = 'LXABZ-P2ICT-ATAXX-VM4X3-LGHHE-ZBFHI';
+    const key = "3DJBZ-M2VKZ-Z3QXQ-7HOFI-RUEL6-ELBPI";
+    const referer = "fuyu";
 
     const location = JSON.stringify({
       latitude: this.currentLocation.latitude,
-      longitude: this.currentLocation.longitude
+      longitude: this.currentLocation.longitude,
     });
-    const category = '生活服务,娱乐休闲';
-     
+    const category = "生活服务,娱乐休闲";
+
     wx.navigateTo({
-      url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category=' + category
+      url:
+        "plugin://chooseLocation/index?key=" +
+        key +
+        "&referer=" +
+        referer +
+        "&location=" +
+        location +
+        "&category=" +
+        category,
     });
   },
   onCancel() {
+    const pages = getCurrentPages();
+    if (pages.length === 1) {
+      wx.reLaunch({
+        url: "/pages/home/index",
+      });
+      return;
+    }
     wx.navigateBack({
       fail(e) {
         wx.redirectTo({
-          url: '/pages/home/index',
+          url: "/pages/home/index",
         });
-      }
+      },
     });
   },
   async onConfirm() {
@@ -251,11 +260,11 @@ Page({
       this.onMapOpen();
       return;
     }
-    const { pageNum, book_id, image, stamp_pid } = this.options
+    const { pageNum, book_id, image, stamp_pid } = this.options;
     if (!this.data.name) {
       wx.showToast({
-        icon: 'none',
-        title: '请填写印章名称'
+        icon: "none",
+        title: "请填写印章名称",
       });
       return;
     }
@@ -263,19 +272,21 @@ Page({
     if (stamp_pid && !book_id) {
       const couponId = this.options.couponId;
       wx.navigateTo({
-        url: '/pages/signet-move/index?stamp_pid=' + stamp_pid + '&key=' + this.options.key + (couponId ? `&couponId=${couponId}` : ''),
+        url:
+          "/pages/signet-move/index?stamp_pid=" +
+          stamp_pid +
+          "&key=" +
+          this.options.key +
+          (couponId ? `&couponId=${couponId}` : ""),
         success: (res) => {
-          res.eventChannel.emit(
-            'stampInfo',
-            {
-              location: this.data.location,
-              name: this.data.name,
-              time: this.data.time,
-              image_url: this.data.signet.image_url,
-              stamp_pid: this.options.stamp_pid,
-            }
-          );
-        }
+          res.eventChannel.emit("stampInfo", {
+            location: this.data.location,
+            name: this.data.name,
+            time: this.data.time,
+            image_url: this.data.signet.image_url,
+            stamp_pid: this.options.stamp_pid,
+          });
+        },
       });
       return;
     }
@@ -285,7 +296,9 @@ Page({
       book_id: +book_id,
       page_num: +pageNum,
       name: this.data.name,
-      image_url: this.data.isStampOrigin ? this.data.signet.image_url : this.data.signet.corppedStamp,
+      image_url: this.data.isStampOrigin
+        ? this.data.signet.image_url
+        : this.data.signet.corppedStamp,
       location: this.data.location.name,
       loc_lat: this.data.location.loc_lat,
       loc_long: this.data.location.loc_long,
@@ -293,9 +306,8 @@ Page({
     });
 
     const ec = this.getOpenerEventChannel();
-    ec.emit('refresh');
+    ec.emit("refresh");
     wx.navigateBack();
-
   },
   async onRegisterAndRefresh(e) {
     await this.onRegister(e);
@@ -304,7 +316,7 @@ Page({
   isStampOrigin(e) {
     const { isStampOrigin } = e.detail;
     this.setData({
-      isStampOrigin
+      isStampOrigin,
     });
   },
-})
+});

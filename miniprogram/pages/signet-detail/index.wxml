@@ -22,7 +22,7 @@
   <section-title title="{{signets[curIndex].name || '印章'}}" />
 </view>
 
-<view style="margin-top: -14px;">
+<view style="margin-top: -14px; padding-bottom: 108px;">
   <signet-container-list
     id="signet-container"
     book="{{book}}"

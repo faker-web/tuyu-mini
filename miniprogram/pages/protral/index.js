@@ -72,6 +72,8 @@ Page({
     selected: 0,
     countList: [],
     stamp_count: 0,
+    show_checked_in: false,
+    member_points: 0,
     selectList: [
       {
         text: "我的印章本",
@@ -100,7 +102,7 @@ Page({
       avatar,
       nickname,
     } = user
-    const { product_count, book_count, stamp_count, visit_count } = user_stats
+    const { product_count, book_count, stamp_count, visit_count, show_checked_in, member_points } = user_stats
 
     const statusList = [{
       title: '印章本',
@@ -117,7 +119,9 @@ Page({
       avatar: avatar || 'https://fuyuoss.oss-cn-shanghai.aliyuncs.com/front-end/home-icon.png',
       nickname: nickname || '小福鱼',
       countList: statusList,
-      stamp_count
+      stamp_count,
+      show_checked_in,
+      member_points
     })
   },
 
@@ -218,4 +222,10 @@ Page({
       url: `/pages/osd-ar/index?id=${id}&videoUrl=${encodeURIComponent(resource)}&osd=${encodeURIComponent(osd)}`
     });
   },
+
+  onGoToCheckIn() {
+    wx.navigateTo({
+      url: '/pages/sign-in/index',
+    })
+  }
 });

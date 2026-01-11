@@ -25,12 +25,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onImageLoad(e) {
+      if (this.data.current === 0) {
+        const windowWidth = wx.getSystemInfoSync().windowWidth
+        const height = e.detail.height * (windowWidth / e.detail.width)
+        this.triggerEvent('height', height * 2)
+      }
+    },
     onImageClick(e) {
       const index = e.currentTarget.dataset.index;
-      // wx.previewImage({
-      //   urls: this.data.images,
-      //   current: this.data.images[index]
-      // });
 
       this.setData({
         current: index

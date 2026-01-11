@@ -1,0 +1,18 @@
+<!--pages/sign-in-detail/index.wxml-->
+<view class="page">
+
+  <!-- 积分明细列表 -->
+  <view class="point-list">
+    <block wx:for="{{pointList}}" wx:key="index">
+      <view class="point-item">
+        <view class="point-item-main">
+          <view class="point-title">{{item.title}}</view>
+					<view class="point-time">{{item.time}}</view>
+        </view>
+				<view class="point-value {{item.value >= 0 ? 'plus' : 'minus'}}">
+					{{item.value >= 0 ? '+' : ''}}{{item.value}}
+				</view>
+      </view>
+    </block>
+  </view>
+</view>

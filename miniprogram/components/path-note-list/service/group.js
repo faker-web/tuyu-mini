@@ -17,6 +17,7 @@ function getCompaines(places) {
 		if (!it.company_info) return false;
 		else {
 			return {
+				id: it.company_info.id,
 				avatar: it.company_info.logo,
 				name: it.company_info.name
 			}

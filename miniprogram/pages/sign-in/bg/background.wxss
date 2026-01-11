@@ -1,0 +1,10 @@
+.right {
+	margin-top: 40rpx;
+	margin-left: 16rpx;
+	transform: rotate(45deg);
+}
+
+.container {
+	display: flex;
+	align-items: flex-start;
+}

@@ -18,11 +18,25 @@ Component({
     },
   },
 
+  observers: {
+    'item.companies': function(newVal) {
+      const uniqueCompanies = (newVal || []).reduce((acc, item) => {
+        if (acc.find(it => it.id === item.id)) {
+          return acc
+        }
+        return [...acc, item]
+      }, [])
+      this.setData({
+        companies: uniqueCompanies
+      })
+    }
+  },
+
   /**
    * 组件的初始数据
    */
   data: {
-
+    companies: []
   },
 
   /**

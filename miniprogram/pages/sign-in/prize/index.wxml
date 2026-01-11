@@ -1,0 +1,12 @@
+<view class="root" bind:tap="onGoToCoupon">
+  <view class="actions">
+	  <view class="action-button">每天首次<text style="font-weight: 500;">免费</text></view>
+	</view>
+  <view class="head">
+	  <view>
+			<view class="head-title">立即抽奖</view>
+			<view class="head-title-description">单次消耗 {{prizeCount}} 积分</view>
+		</view>
+	</view>
+  <image style="width: 348rpx;" mode="widthFix" class="bg-image" src="https://oss.storyhub.cc/icons/image%20199.svg" />
+</view>

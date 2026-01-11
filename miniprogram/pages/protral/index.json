@@ -4,7 +4,8 @@
     "navigation-bar": "/components/navigation-bar/index",
     "loading": "/components/loading/index",
     "protral-main": "/components/protral-main/index",
-    "empty-list": "/components/empty/empty-list/index"
+    "empty-list": "/components/empty/empty-list/index",
+    "point": "/components/point/index"
   },
   "navigationStyle": "custom",
   "disableScroll": false

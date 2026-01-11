@@ -3,11 +3,11 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 380px;
+  min-height: 760rpx;
 }
 .signet-container image {
   width: 100%;
-  margin: 0 16px;
+  margin: 0 32rpx;
 }
 
 .signet-container-content {
@@ -23,55 +23,55 @@
 }
 
 .signet-container-empty {
-  width: 269px;
+  width: 538rpx;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   border: 1px dotted #00000033;
-  border-radius: 4px;
-  padding: 0 0 24px 0;
+  border-radius: 8rpx;
+  padding: 0 0 48rpx 0;
 }
 
 .empty-btn-groups {
   display: flex;
   align-items: center;
-  gap: 12px;
-  height: 44px;
-  margin-top: 24px;
+  gap: 24rpx;
+  height: 88rpx;
+  margin-top: 48rpx;
 }
 
 .empty-btn-groups .btn {
-  width: 106px;
+  width: 212rpx;
   border: 1px solid #00002240;
-  border-radius: 12px;
+  border-radius: 24rpx;
   height: 100%;
   text-align: center;
-  line-height: 44px;
-  font-size: 16px;
+  line-height: 88rpx;
+  font-size: 32rpx;
   color: #000022D9;
 }
 
 .finish-icon-container {
   position: absolute;
-  right: 50px;
-  top: 30px;
+  right: 100rpx;
+  top: 60rpx;
 }
 
 .switch-button {
   position: absolute;
-  right: 62px;
-  top: 52px;
+  right: 124rpx;
+  top: 104rpx;
   z-index: 10;
 }
 
 .width-fix .image {
-  width: 200px !important;
+  width: 400rpx !important;
 }
 
 .height-fix .image {
-  height: 200px !important;
+  height: 400rpx !important;
 }
 
 .signet-image {
@@ -86,6 +86,6 @@
 }
 
 .signet-image .image {
-  width: 260px;
-  height: 260px;
+  width: 520rpx;
+  height: 520rpx;
 }

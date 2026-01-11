@@ -284,3 +284,31 @@
   padding: 2px 9px;
   font-size: 12px;
 }
+
+.point-box {
+  border-radius: 48rpx;
+  padding: 20rpx 40rpx;
+  
+  width: 210rpx;
+  background: linear-gradient(272.41deg, rgba(247, 207, 159, 0.5) 1.01%, rgba(249, 218, 176, 0.5) 95.77%);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  position: relative;
+}
+
+.point-box .check-in-tag {
+  position: absolute;
+  right: 12rpx;
+  top: -18rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  background-color: #F30240B2;
+  color: #fff;
+  font-size: 22rpx;
+  font-weight: 500;
+  border-radius: 8rpx;
+  border: 4rpx solid #fff;
+  padding: 0 8rpx
+}

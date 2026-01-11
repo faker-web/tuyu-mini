@@ -7,6 +7,13 @@ import { getCouponsByUserPath, getCoupon, getCouponsByPath, couponInfo, finshedP
 import dayjs from 'dayjs';
 const app = getApp();
 
+function formatOpeningTime(time) {
+  if (!time) return '';
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time % 3600) / 60);
+  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+}
+
 Page({
   options: {
     addGlobalClass: true
@@ -36,6 +43,7 @@ Page({
     comments: [],
     couponList: [],
     info: null,
+    headerHeight: 592
   },
 
   onShareAppMessage(res) {
@@ -68,6 +76,7 @@ Page({
     }
     if (!this.data.isLogined) return;
     this.getDetail({ user_path_id: options.user_path_id, path_id: options.path_id});
+
   },
 
   customReturn() {
@@ -147,6 +156,12 @@ Page({
 
   getComments() {
 
+  },
+
+  onHeaderHeight(e) {
+    this.setData({
+      headerHeight: e.detail || 592
+    })
   },
 
   onMarkertap(e) {
@@ -280,6 +295,8 @@ Page({
       },
       place_details: path_detail_info.place_details.map((item) => ({
         ...item,
+        open_time_str: formatOpeningTime(item.open_time),
+        close_time_str: formatOpeningTime(item.close_time),
         hint: place_reservation?.[item.place_id]?.hint,
         visited: place_visited?.[item.place_id],
         showOrderBtn: place_reservation?.[item.place_id]?.is_required,
@@ -306,12 +323,12 @@ Page({
   },
   async getCouponList() {
     let data = [];
-    if (!!this.options.user_path_id) {
-      data = await getCouponsByUserPath(+this.options.user_path_id);
-    }
-    else {
-      data = await getCouponsByPath(this.options.path_id);
-    }
+    // if (!!this.options.user_path_id) {
+    //   data = await getCouponsByUserPath(+this.options.user_path_id, +this.options.path_id);
+    // }
+    // else {
+    data = await getCouponsByPath(this.options.path_id);
+    // }
 
     this.setData({
       couponList: data
@@ -492,7 +509,6 @@ Page({
     });
   },
   onCouponClick(e) {
-    console.log('----e', e)
     const { userCouponId } = e.detail;
     if (this.data.isUserPath && !!userCouponId) {
       wx.navigateTo({

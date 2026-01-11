@@ -1,0 +1,13 @@
+<!--pages/path-note-detail/place-modal/index.wxml-->
+<half-screen-dialog
+	show="{{show}}"
+	title=""
+	ext-class="fuyu-half-screen-dialog"
+	bindclose="onClose"
+  closabled="{{false}}"
+>
+  <view slot="title">签到规则</view>
+  <view class="text-gray-color" slot="desc">
+	  {{content}}
+	</view>
+</half-screen-dialog>

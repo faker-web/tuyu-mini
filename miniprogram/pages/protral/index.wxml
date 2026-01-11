@@ -3,13 +3,22 @@
   <loading wx-if="{{showLoading}}" />
   <view wx-if="{{!showLoading}}" class="page-section swiper">
     <view class="user-info-box" style="padding-top: {{navBarHeight + 20}}px;">
-      <protral-main avatar="{{avatar}}" nickname="{{nickname}}" isLogined="{{isLogined}}" bind:onLoginSuccess="onLoginSuccess">
-        <view class="user-content-subtitle" wx-if="{{isLogined}}">
-            累计收集
-            <view class="count">{{stamp_count}}</view>
-            枚印章
+      <view class="flex items-center">
+        <protral-main avatar="{{avatar}}" nickname="{{nickname}}" isLogined="{{isLogined}}" bind:onLoginSuccess="onLoginSuccess">
+          <view class="user-content-subtitle" wx-if="{{isLogined}}">
+              累计收集
+              <view class="count">{{stamp_count}}</view>
+              枚印章
+          </view>
+        </protral-main>
+        <view class="point-box" bindtap="onGoToCheckIn">
+          <view style="height: 44rpx; margin-right: 24rpx;"><point size="22" /></view>
+          <view class="roboto" style="font-size: 36rpx;">{{member_points}}</view>
+          <view class="check-in-tag" wx:if="{{show_checked_in}}">
+            <text>去签到</text>
+          </view>
         </view>
-      </protral-main>
+      </view>
       <view class="count-box" wx-if="{{isLogined}}">
         <view wx:for="{{countList}}" wx:key="{{item.index}}" class="count-item">
             <view class="count-item-value">{{item.value}}</view>

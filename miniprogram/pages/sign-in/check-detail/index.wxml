@@ -1,0 +1,35 @@
+<view class="root" style="padding: 40rpx 32rpx;">
+  <view class="flex items-center justify-between text-14">
+    <view>
+      <text style="font-size: 24px;">{{checkCount}}</text>
+      <text>天</text>
+      <text class="text-gray-color-1">连续签到</text>
+    </view>
+    <view class="inline-flex items-center text-gray-color-1" wx:if="{{ruleContent}}" bind:tap="onRuleShow">
+      <view class="iconfont icon-guizewendang" style="margin-right: 4rpx;"></view>
+      规则
+    </view>
+  </view>
+
+  <view class="check-list">
+    <view class="check-list-item" wx:for="{{checkItems}}">
+      <view class="hongbao">
+        <image mode="widthFix" src="https://oss.storyhub.cc/icons/image%20197.svg" style="width: 52rpx;" />
+        <view wx:if="{{item.isChecked}}" class="jifen-text">+{{item.count}}</view>
+      </view>
+      <view class="text-12 text-center" style="font-weight: 500; color: {{item.isChecked ? '#B99F63' : '#00000040'}}">
+        <view class="iconfont icon-sign-in"></view>
+        <view>{{item.date}}</view>
+      </view>
+    </view>
+
+    <view class="line"></view>
+  </view>
+
+  <view>
+    <view wx:if="{{!todayIsChecked}}" bind:tap="onCheckIn" class="sign-in-button">签到领积分</view>
+    <view style="text-align: center; margin-top: 24rpx;" class="text-gray-color-2 text-14" wx:else>已签到</view>
+  </view>
+</view>
+
+<rule-modal show="{{showRule}}" content="{{ruleContent}}" bidn:close="onRuleClose" />

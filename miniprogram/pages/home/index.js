@@ -152,6 +152,7 @@ Page({
           return false
         }
         return {
+          id: item.company_info.id,
           avatar: item.company_info.logo,
           name: item.company_info.name
         }

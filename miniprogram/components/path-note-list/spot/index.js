@@ -56,6 +56,8 @@ Component({
     content_info: Object,
     plain_text: String,
     product_ids: Array,
+    open_time_str: String,
+    close_time_str: String,
     product_map: Object,
     location: String,
     isUserPath: Boolean,

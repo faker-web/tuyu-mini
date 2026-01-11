@@ -1,0 +1,30 @@
+page {
+  background: linear-gradient(180deg, #FFF5EC 0%, #F4F3F8 88.82%, #F4F3F8 100%);
+  /* padding-bottom: 200rpx; */
+}
+
+.head {
+  margin-top: 40rpx;
+}
+
+.head-value {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 64rpx;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-top: 8rpx;
+}
+
+.background {
+  position: absolute;
+  right: 60rpx;
+  z-index: -1;
+  top: 20rpx;
+}
+
+.head-title {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}

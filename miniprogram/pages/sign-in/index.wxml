@@ -1,0 +1,46 @@
+<view style="margin: 0 24rpx;">
+  <view class="head">
+    <view class="head-title" bind:tap="onGoToDetail">
+      <image style="height: 46rpx" mode="heightFix" src="https://oss.storyhub.cc/icons/%E7%B4%AF%E8%AE%A1%E7%A7%AF%E5%88%86.svg" />
+
+      <view class="flex items-center" wx:if="{{pointCount}}">
+        <view class="iconfont icon-right-arrow text-gray-color" style="font-size: 30rpx;"></view>
+        <view class="iconfont icon-right-arrow text-gray-color" style="margin-left:-6px; font-size: 30rpx;"></view>
+      </view>
+    
+    </view>
+    <view class="head-value">
+      <scrolling-number fontSize="{{28}}" number="{{pointCount || 0}}" />
+    </view>
+
+    <view class="background">
+      <background />
+    </view>
+  </view>
+
+  <view wx:if="{{has_checkin_active}}" class="w-full" style="margin-top: 36rpx;">
+    <check-detail
+      bind:checked="onChecked"
+      todayIsChecked="{{todayIsChecked}}"
+      checkItems="{{checkList}}"
+      checkCount="{{checkCount}}"
+      ruleContent="{{ruleContent}}"
+    />
+  </view>
+
+  <view style="margin-top: 24rpx;" wx:if="{{activity}}">
+    <prize prizeCount="{{activity.point}}" activityId="{{activity.id}}" />
+  </view>
+
+  <view  style="margin-top: 24rpx;">
+    <view wx:for="{{memberTasks}}">
+      <point
+        taskId="{{item.id}}"
+        name="{{item.name}}"
+        value="{{item.value}}"
+        isCompeleted="{{item.isCompeleted}}"
+        bind:share="onShare"
+      />
+    </view>
+  </view>
+</view>

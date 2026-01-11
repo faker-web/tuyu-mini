@@ -1,7 +1,7 @@
 <!--components/path-note-list/card/index.wxml-->
 <view class="card relative" bind:tap="onClick">
-  <view class="flex gap-8 company-banner" wx:if="{{item.companies.length}}">
-	  <view class="flex items-center gap-4 company-description" wx:for="{{item.companies}}">
+  <view class="flex gap-8 company-banner" wx:if="{{companies.length}}">
+	  <view class="flex items-center gap-4 company-description" wx:for="{{companies}}">
 		  <image src="{{item.avatar}}" mode="aspectFit" class="company-avatar" />
 			<text>{{item.name}}</text>
 		</view>

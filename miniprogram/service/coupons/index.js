@@ -13,11 +13,12 @@ export async function getCouponList({status, count_only}) {
 }
 
 
-export async function getCouponsByUserPath(user_path_id) {
+export async function getCouponsByUserPath(user_path_id, path_id) {
 	const { data } = await request({
 		url: '/fuyu/userpath/coupons',
 		data: {
-			user_path_id
+			user_path_id,
+			path_id
 		}
 	});
 	return data;
@@ -30,7 +31,13 @@ export async function getCouponsByPath(path_id) {
 			path_id: +path_id
 		}
 	});
-	return data;
+	return (data || []).map(item => {
+		return {
+			...item,
+			user_coupon_id: item.type === 4 ? -1 : item.user_coupon_id,
+			should_send: item.type === 4 ? false : item.should_send
+		}
+	});
 }
 
 export async function getCoupon(coupon_id) {

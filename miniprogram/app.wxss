@@ -2,6 +2,18 @@
 @import './component.wxss';
 @import './icon.wxss';
 
+/* 定义 Roboto 字体 */
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://oss.storyhub.cc/fonts/Roboto/Roboto-Regular-14.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 .container {
   display: flex;
   flex-direction: column;

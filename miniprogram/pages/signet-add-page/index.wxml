@@ -15,12 +15,12 @@
   isStampOrigin="{{canCorpStamp ? isStampOrigin : true}}"
   bind:isStampOrigin="isStampOrigin"
 />
-<view wx:if="{{!pageError}}" wx:if="{{!owned}}" style="margin-top: -16px;">
+<view wx:if="{{!pageError}}" wx:if="{{!owned}}" style="margin-top: -16px; padding-bottom: 118px; z-index: 1;">
   <view class="signet-title flex items-center">
-    <view class="inline-flex items-center">
+    <view class="inline-flex items-center"  bind:tap="onEdit">
       <view wx:if="{{name}}">{{name}}</view>
       <view class="text-gray-color-2" style="font-size: 18px; font-weight: 400;" wx:else>请填写印章名称</view>
-      <view style="margin-left: 8px; margin-top: 1px;" bind:tap="onEdit">
+      <view style="margin-left: 8px; margin-top: 1px;">
         <iconfont name="edit" color="rgba(0, 0, 34, 0.5)" size="24" />
       </view>
     </view>

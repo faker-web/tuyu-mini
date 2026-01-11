@@ -1,0 +1,21 @@
+<view class="root">
+  <point-icon size="58" />
+
+	<view class="middle">
+	  <view class="title">{{name}}</view>
+		<view class="desc">
+		  <text>领取 </text>
+			<text style="color: #000000D9; font-weight: 500;">+ {{value}}</text>
+		</view>
+	</view>
+
+	<view class="share-button-root" wx:if="{{!isCompeleted}}">
+	  <button open-type="share" class="share-button" bind:tap="onShare">
+	    <point-icon size="22" />
+		  <text>分享</text>
+		</button>
+	</view>
+	<view wx:else>
+	  <text style="color: rgba(0, 0, 0, 0.35); font-size: 28rpx;">已分享</text>
+	</view>
+</view>

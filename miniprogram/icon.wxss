@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'iconfont';  /* Project id 4724013 */
-  src: url('//at.alicdn.com/t/c/font_4724013_jc5p8698wea.woff2?t=1750171038600') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4724013_jc5p8698wea.woff?t=1750171038600') format('woff'),
-       url('//at.alicdn.com/t/c/font_4724013_jc5p8698wea.ttf?t=1750171038600') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4724013_ls60dg7d5yj.woff2?t=1752898592735') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4724013_ls60dg7d5yj.woff?t=1752898592735') format('woff'),
+       url('//at.alicdn.com/t/c/font_4724013_ls60dg7d5yj.ttf?t=1752898592735') format('truetype');
 }
 
 .iconfont {
@@ -35,4 +35,16 @@
 
 .icon-liked::before {
   content: "\e611";
+}
+
+.icon-guizewendang::before {
+  content: "\e63c";
+}
+
+.icon-sign-in::before {
+  content: "\e610";
+}
+
+.icon-right-arrow::before {
+  content: "\e605";
 }

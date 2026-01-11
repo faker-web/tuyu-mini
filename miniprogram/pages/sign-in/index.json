@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "background": "./bg/background",
+    "check-detail": "./check-detail/index",
+    "prize": "./prize/index",
+    "point": "./point/index",
+    "scrolling-number": "/components/scrolling-number/index"
+  },
+  "navigationBarBackgroundColor": "#FFF5EC",
+  "disableScroll": false,
+  "backgroundColor": "#F4F3F8"
+}
